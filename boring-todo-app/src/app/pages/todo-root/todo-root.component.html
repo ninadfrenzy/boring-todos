@@ -1,0 +1,25 @@
+<section class="section">
+    <div class="container">
+      <div class="columns">
+
+          <div class="column is-8">
+            <div class="field add-todo has-addons">
+              <p class="control is-expanded">
+                <input class="input round-btn" type="text" style="border-bottom-right-radius: 20px !important;" placeholder="Add a todo" #ref>
+              </p>
+              <p class="control">
+                <a class="button is-info ml-2 round-btn" (click)="addTodo(ref)">
+                  Add
+                </a>
+              </p>
+            </div>
+            <app-list-view [collectionReference]=selectedCollection [collectionName]=selectedCollectionName (todoUpdateEvent)="onTodoUpdate($event)"></app-list-view>
+          </div>
+          <div class="column is-4">
+            <div class="collection" *ngFor="let item of allCollections;" (click)="selectCollection(item)">
+                {{item}}
+            </div>
+        </div>
+      </div>
+    </div>
+  </section>

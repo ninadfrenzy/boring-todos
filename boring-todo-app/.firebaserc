@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "boringtodos": {
+      "hosting": {
+        "boring-todo-app": [
+          "boringtodos"
+        ]
+      }
+    }
+  }
+}

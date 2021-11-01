@@ -1,0 +1,18 @@
+<div class="container">
+    <button class="button" (click)="isEditMode=!isEditMode">is Edit</button>
+  <h2 class="is-size-1">{{ collectionName }}</h2>
+  <div *ngIf="collectionReference">
+    <div
+      *ngFor="let todo of collectionReference; let i = index"
+      (click)="!isEditMode? updateTodo(todo, true): ''"
+      style="cursor: pointer"
+      [style.text-decoration-line]="todo.completed ? 'line-through' : 'None'"
+    >
+      <strong [id]="todo.todoId" *ngIf="!isEditMode">{{ todo.todoText }}</strong>
+      <span *ngIf="isEditMode">
+        <input [value]="todo.todoText" #ref (change)="todo.todoText=ref.value;updateTodo(todo, false);"/>
+        
+      </span>
+    </div>
+  </div>
+</div>
